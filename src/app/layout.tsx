@@ -1,8 +1,103 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const greycliffCF = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-thin.otf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-thinoblique.otf',
+      weight: '100',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-extralight.otf',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-extralightoblique.otf',
+      weight: '200',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-light.otf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-lightoblique.otf',
+      weight: '300',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-regularoblique.otf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-medium.otf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-mediumoblique.otf',
+      weight: '500',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-demibold.otf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-demiboldoblique.otf',
+      weight: '600',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-boldoblique.otf',
+      weight: '700',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-extrabold.otf',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-extraboldoblique.otf',
+      weight: '800',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-heavy.otf',
+      weight: '900',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Fontspring-DEMO-greycliffcf-heavyoblique.otf',
+      weight: '900',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-greycliff',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Bella PetCare - Tu tienda de mascotas',
@@ -15,14 +110,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
-      <head>
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=greycliff-cf@1,2,3,4,5,6,7&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={`${inter.className} font-greycliff`}>{children}</body>
+    <html lang="es" className={greycliffCF.variable}>
+      <body className="font-greycliff">{children}</body>
     </html>
   )
 }
