@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { Header } from '@/src/components/layout/header'
+import { SearchBar } from '@/src/components/layout/search-bar'
 import localFont from 'next/font/local'
 import './globals.css'
 
@@ -111,7 +113,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={greycliffCF.variable}>
-      <body className="font-greycliff">{children}</body>
+      <body className="font-greycliff">
+        <Header />
+        <SearchBar />
+        {children}
+      </body>
     </html>
   )
 }

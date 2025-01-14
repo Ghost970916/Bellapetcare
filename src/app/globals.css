@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --primary: #FF385C;
-    --secondary: #41B6E6;
+    --primary: #F9193D; 
+    --secondary: #2F7DA2;
   }
   
   body {

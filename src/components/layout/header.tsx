@@ -1,11 +1,19 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Search, User, Menu } from 'lucide-react'
+import { User, Menu } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Select } from "@/components/ui/select"
+import { cn } from "@/lib/utils"
+
+const navItems = [
+  { href: '/', label: 'Inicio' },
+  { href: '/productos', label: 'Productos' },
+  { href: '/nosotros', label: 'Nosotros' },
+]
 
 export function Header() {
+  // En un componente real, esto vendría de un estado o un router
+  const currentPath = '/'
+
   return (
     <header className="w-full bg-white shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -19,43 +27,31 @@ export function Header() {
             className="h-10 w-auto"
           />
         </Link>
-        
-        {/* Barra de búsqueda */}
-        <div className="hidden md:flex items-center flex-grow mx-8">
-          <div className="relative flex items-center w-full max-w-md">
-            <Select>
-              <option value="">Categorías</option>
-              {/* Add more options here */}
-            </Select>
-            <Input 
-              type="search" 
-              placeholder="¿Qué estás buscando?" 
-              className="pl-2 rounded-l-none"
-            />
-            <Button size="icon" className="absolute right-0 rounded-l-none">
-              <Search className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
 
         {/* Navegación y iconos */}
         <div className="flex items-center space-x-6">
           <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-gray-700 hover:text-primary">
-              Inicio
-            </Link>
-            <Link href="/productos" className="text-gray-700 hover:text-primary">
-              Productos
-            </Link>
-            <Link href="/nosotros" className="text-gray-700 hover:text-primary">
-              Nosotros
-            </Link>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "text-[#73A2AD] hover:text-[#3D3D3D] relative py-2",
+                  currentPath === item.href && "text-[#3D3D3D]"
+                )}
+              >
+                {item.label}
+                {currentPath === item.href && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#41B6E6]"></span>
+                )}
+              </Link>
+            ))}
           </nav>
           <Button variant="ghost" size="icon">
-            <Menu className="h-5 w-5" />
+            <Menu className="h-5 w-5 text-[#73A2AD]" />
           </Button>
           <Button variant="ghost" size="icon">
-            <User className="h-5 w-5" />
+            <User className="h-5 w-5 text-[#73A2AD]" />
           </Button>
         </div>
       </div>

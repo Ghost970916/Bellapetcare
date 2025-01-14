@@ -1,4 +1,3 @@
-import { Header } from "@/src/components/layout/header"
 import { Hero } from "@/src/components/sections/hero"
 import { Categories } from "@/src/components/sections/categories"
 import { ProductGrid } from "@/src/components/sections/product-grid"
@@ -9,7 +8,6 @@ import { Footer } from "@/src/components/sections/footer"
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
         <Hero />
         <Categories />
